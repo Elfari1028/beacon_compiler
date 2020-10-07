@@ -4,7 +4,7 @@ WORKDIR /app/
 
 ADD pubspec.* /app/
 RUN pub get
-ADD . /app
+ADD . /app/
 RUN pub get --offline
 
 WORKDIR /app/output
