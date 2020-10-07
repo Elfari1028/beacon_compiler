@@ -8,19 +8,16 @@ RegExp ident = RegExp(r'[a-zA-Z][A-Za-z0-9]*');
 RegExp number = RegExp(r'([0-9]{1,}$)');
 
 void main(List<String> arguments) {
-  var file = '';
-
-  while (true) {
-    var line = stdin.readLineSync();
-    if (line == 'ENDING') break;
-    file += line;
-  }
+  
+  
+  var file = File(arguments[0]).readAsStringSync();
 
   var res = file.splitMapJoin(
     identifiers,
     onMatch: onMatch,
     onNonMatch: onNonMatch,
   );
+  
   print(res);
 }
 

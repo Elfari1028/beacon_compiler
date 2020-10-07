@@ -1,0 +1,6 @@
+BEGIN var var1 v2ar 123 
+END IF 
+THEN FOR
+END ( + ) 
+:=   *
+, : 
