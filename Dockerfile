@@ -1,10 +1,10 @@
 FROM google/dart
 
+
 WORKDIR /app/
-
-ADD pubspec.* /app/
+COPY pubspec.* /app/
 RUN pub get
-ADD . /app/
-RUN pub get --offline
 
-WORKDIR /app/output
+COPY . /app/
+WORKDIR /app/
+RUN pub get --offline
