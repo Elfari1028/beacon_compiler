@@ -6,7 +6,7 @@ RegExp identifiers = RegExp(
 
 RegExp ident = RegExp(r'[a-zA-Z][A-Za-z0-9]*');
 RegExp number = RegExp(r'([0-9]{1,}$)');
-
+bool error = false;
 void main(List<String> arguments) {
   
   
@@ -17,7 +17,7 @@ void main(List<String> arguments) {
     onMatch: onMatch,
     onNonMatch: onNonMatch,
   );
-  
+
   print(res);
 }
 
@@ -32,6 +32,7 @@ Map<String, String> tokenName = {
 };
 
 String onMatch(Match match) {
+  if(error)return '';
   var str = match.group(0);
   if (str == 'BEGIN') {
     return 'Begin\n';
@@ -55,10 +56,12 @@ String onMatch(Match match) {
 }
 
 String onNonMatch(String str) {
+  if(error)return '';
   if(str == '')return '';
   if (RegExp(r'\s').hasMatch(str)) {
     return '';
   } else {
+    error = true;
     return 'Unknown\n';
   }
 }
