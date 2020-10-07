@@ -49,7 +49,8 @@ String onMatch(Match match) {
   } else if (ident.hasMatch(str)) {
     return ('Ident($str)\n');
   } else if (number.hasMatch(str)) {
-    return ('Int($str)\n');
+    String output = (int.parse(str)).toString();
+    return ('Int($output)\n');
   } else {
     return tokenName[str];
   }
@@ -58,7 +59,7 @@ String onMatch(Match match) {
 String onNonMatch(String str) {
   if(error)return '';
   if(str == '')return '';
-  if (RegExp(r'\s').hasMatch(str)) {
+  if (!RegExp(r'\S').hasMatch(str)) {
     return '';
   } else {
     error = true;

@@ -1,6 +1,9 @@
 BEGIN var var1 v2ar 123 
 END IF 
 THEN FOR
+1a2b3c4d
+000000000000000 0 
+ 1 2 3
 END ( + ) 
 :=   *
 , : 
